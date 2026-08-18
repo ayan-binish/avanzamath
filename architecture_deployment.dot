@@ -1,0 +1,125 @@
+digraph AvanzaMathArchitecture {
+    // Global graph settings
+    graph [
+        rankdir="TB",
+        splines="polyline",
+        nodesep=0.6,
+        ranksep=0.8,
+        bgcolor="#FFFFFF",
+        fontname="Helvetica, Arial, sans-serif",
+        fontsize=14,
+        pad="0.5"
+    ];
+
+    // Global node settings
+    node [
+        fontname="Helvetica, Arial, sans-serif",
+        fontsize=11,
+        shape="box",
+        style="filled,rounded",
+        margin="0.25,0.15",
+        penwidth=1.5
+    ];
+
+    // Global edge settings
+    edge [
+        fontname="Helvetica, Arial, sans-serif",
+        fontsize=9,
+        color="#64748B",
+        penwidth=1.8,
+        arrowsize=0.8
+    ];
+
+    // Core node
+    Core [
+        label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b><font point-size="14" color="#FFFFFF">AvanzaMath Core Web Engine</font></b></td></tr>
+            <tr><td><font point-size="10" color="#CBD5E1">HTML5 • Modern CSS • Modular JS Engine</font></td></tr>
+        </table>>,
+        fillcolor="#1E293B",
+        color="#0F172A",
+        fontcolor="#FFFFFF",
+        shape="rectangle",
+        style="filled,rounded"
+    ];
+
+    // Branch 1: Web & PWA
+    PWA [
+        label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b><font point-size="12" color="#FFFFFF">1. Web &amp; PWA Deployment</font></b></td></tr>
+            <tr><td><font point-size="9" color="#FEF3C7">Hosted on GitHub Pages (Free &amp; Fast CDN)</font></td></tr>
+        </table>>,
+        fillcolor="#D9531E",
+        color="#B43403",
+        fontcolor="#FFFFFF"
+    ];
+
+    // Branch 2: Mobile App
+    Mobile [
+        label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b><font point-size="12" color="#FFFFFF">2. Mobile App Package</font></b></td></tr>
+            <tr><td><font point-size="9" color="#E0E7FF">Capacitor / Cordova Native Wrapper</font></td></tr>
+        </table>>,
+        fillcolor="#3B82F6",
+        color="#1D4ED8",
+        fontcolor="#FFFFFF"
+    ];
+
+    // Leaf nodes for PWA
+    C1 [
+        label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b><font color="#0F172A">💻 Chromebooks &amp; Desktops</font></b></td></tr>
+            <tr><td><font point-size="9" color="#64748B">Instant access via Web Browser URL</font></td></tr>
+        </table>>,
+        fillcolor="#F8FAFC",
+        color="#CBD5E1"
+    ];
+
+    C2 [
+        label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b><font color="#0F172A">📱 Mobile &amp; Tablet Home Screen</font></b></td></tr>
+            <tr><td><font point-size="9" color="#64748B">1-Tap Install without App Store login</font></td></tr>
+        </table>>,
+        fillcolor="#F8FAFC",
+        color="#CBD5E1"
+    ];
+
+    C3 [
+        label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b><font color="#047857">⚡ 100% Offline Practice</font></b></td></tr>
+            <tr><td><font point-size="9" color="#065F46">Service Worker &amp; IndexedDB storage</font></td></tr>
+        </table>>,
+        fillcolor="#ECFDF5",
+        color="#10B981"
+    ];
+
+    // Leaf nodes for Mobile
+    M1 [
+        label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b><font color="#0F172A">🤖 Google Play Store</font></b></td></tr>
+            <tr><td><font point-size="9" color="#64748B">Android APK / AAB Bundle</font></td></tr>
+        </table>>,
+        fillcolor="#F8FAFC",
+        color="#CBD5E1"
+    ];
+
+    M2 [
+        label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b><font color="#0F172A">🍎 Apple App Store</font></b></td></tr>
+            <tr><td><font point-size="9" color="#64748B">iOS IPA for iPhone &amp; iPad</font></td></tr>
+        </table>>,
+        fillcolor="#F8FAFC",
+        color="#CBD5E1"
+    ];
+
+    // Edges
+    Core -> PWA [label="  Immediate Launch  ", color="#D9531E", fontcolor="#D9531E"];
+    Core -> Mobile [label="  Future Option  ", color="#3B82F6", fontcolor="#3B82F6"];
+
+    PWA -> C1;
+    PWA -> C2;
+    PWA -> C3;
+
+    Mobile -> M1;
+    Mobile -> M2;
+}

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AvanzaMath - Product Requirement Document (PRD)</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+    @page {
+      size: letter;
+      margin: 14mm 12mm 14mm 12mm;
+      @bottom-right {
+        content: counter(page);
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 8pt;
+        color: #64748B;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #1E293B;
+      background-color: #FFFFFF;
+      line-height: 1.5;
+      font-size: 9pt;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* Cover / Header Banner */
+    .header-banner {
+      background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+      color: #FFFFFF;
+      padding: 20px 24px;
+      border-radius: 10px;
+      margin-bottom: 16px;
+      border-left: 6px solid #D9531E;
+      position: relative;
+    }
+
+    .header-badges {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 9999px;
+      font-size: 7pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-primary { background: #D9531E; color: #FFFFFF; }
+    .badge-gold { background: #F59E0B; color: #0F172A; }
+    .badge-jade { background: #10B981; color: #FFFFFF; }
+
+    .header-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20pt;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #FFFFFF;
+      margin-bottom: 4px;
+    }
+
+    .header-subtitle {
+      font-size: 10pt;
+      color: #94A3B8;
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .meta-item { display: flex; flex-direction: column; }
+    .meta-label { font-size: 6.5pt; text-transform: uppercase; letter-spacing: 0.5px; color: #94A3B8; font-weight: 600; }
+    .meta-val { font-size: 8pt; color: #F1F5F9; font-weight: 600; }
+
+    h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12.5pt;
+      font-weight: 700;
+      color: #0F172A;
+      margin-top: 16px;
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+      border-bottom: 1.5px solid #E2E8F0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    h3 {
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: #D9531E;
+      margin-top: 12px;
+      margin-bottom: 6px;
+    }
+
+    h4 {
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: #1E293B;
+      margin-top: 8px;
+      margin-bottom: 4px;
+    }
+
+    p { margin-bottom: 8px; }
+    ul, ol { margin-left: 18px; margin-bottom: 8px; }
+    li { margin-bottom: 3px; }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0;
+      font-size: 8.2pt;
+    }
+
+    th {
+      background: #F8FAFC;
+      color: #334155;
+      font-weight: 700;
+      text-align: left;
+      padding: 6px 8px;
+      border: 1px solid #E2E8F0;
+      font-size: 7.8pt;
+      text-transform: uppercase;
+    }
+
+    td {
+      padding: 6px 8px;
+      border: 1px solid #E2E8F0;
+      color: #334155;
+      vertical-align: top;
+    }
+
+    tr:nth-child(even) { background-color: #F8FAFC; }
+
+    .card-box {
+      background: #F8FAFC;
+      border-radius: 8px;
+      border: 1px solid #E2E8F0;
+      padding: 10px 14px;
+      margin-bottom: 10px;
+    }
+
+    .card-gold {
+      background: #FFFBEB;
+      border-color: #FDE68A;
+    }
+
+    .page-break {
+      page-break-before: always;
+      break-before: page;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1 -->
+  <div class="header-banner">
+    <div class="header-badges">
+      <span class="badge badge-primary">PRD v1.3.0</span>
+      <span class="badge badge-gold">Bilingual Elementary Math</span>
+      <span class="badge badge-jade">Zero-PII COPPA Compliant</span>
+    </div>
+    <div class="header-title">AvanzaMath — Product Requirement Document</div>
+    <div class="header-subtitle">Elementary Mathematics Learning Platform Rooted in Hispanic Culture</div>
+    <div class="meta-grid">
+      <div class="meta-item">
+        <span class="meta-label">Target Audience</span>
+        <span class="meta-val">Grades K–5 & Bilingual Families</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Primary Stack</span>
+        <span class="meta-val">Offline-First PWA (HTML/CSS/JS)</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Audio & Speech</span>
+        <span class="meta-val">Native Web Speech API (ES/EN)</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Compliance</span>
+        <span class="meta-val">COPPA, FERPA & Title I Ready</span>
+      </div>
+    </div>
+  </div>
+
+  <h2>1. Executive Summary & Vision</h2>
+  <p><strong>AvanzaMath</strong> is an equity-centered, dual-language, gamified elementary math learning platform designed for elementary students in grades K–5 from low-income, predominantly Hispanic neighborhoods.</p>
+  <p>Instead of abstract, disconnected drills, AvanzaMath anchors arithmetic (<strong>Addition, Subtraction, Multiplication, Division</strong>) in familiar neighborhood cultural traditions: counting fresh fruits at <em>El Puesto de Frutas</em>, baking conchas at <em>La Panadería</em>, calculating change at <em>El Mercado</em>, and dividing treats from <em>La Piñata</em>.</p>
+
+  <div class="card-box card-gold">
+    <strong>🌟 Core Pillars of AvanzaMath:</strong>
+    <ul style="margin-top: 4px; margin-bottom: 0;">
+      <li><strong>Culturally Resonant Contexts:</strong> Everyday scenarios Hispanic elementary kids immediately recognize.</li>
+      <li><strong>Bilingual Segmented Toggle [ 🇲🇽 ES | 🇺🇸 EN ]:</strong> Instant dual-language switching with native Latin American Spanish and English TTS audio.</li>
+      <li><strong>Zero-Friction Student Onboarding:</strong> Avatar companion selection and 4-word anonymous recovery codes (zero student PII required).</li>
+      <li><strong>Family Math Center:</strong> Spanish-first parent progress tracking, zero-password QR pairing, and WhatsApp shareable progress cards.</li>
+    </ul>
+  </div>
+
+  <h2>2. Problem Statement & Demographic Context</h2>
+  <ul>
+    <li><strong>Curriculum Disconnection:</strong> Standard word problems rely on unfamiliar cultural contexts rather than real-world community life.</li>
+    <li><strong>Language Friction for Dual-Language Learners:</strong> ELL students often understand math logic but struggle with English-heavy standardized phrasing.</li>
+    <li><strong>Digital & Hardware Constraints:</strong> Low-income families often rely on prepaid data or shared devices with intermittent connectivity.</li>
+    <li><strong>Parental Barriers:</strong> Spanish-speaking parents want to help with math but face complex, English-only login portals.</li>
+  </ul>
+
+  <h2>3. Target User Personas</h2>
+  <table>
+    <tr>
+      <th style="width: 25%;">Persona</th>
+      <th style="width: 35%;">Profile & Context</th>
+      <th style="width: 40%;">Key Needs & AvanzaMath Solution</th>
+    </tr>
+    <tr>
+      <td><strong>Mateo (Student)</strong><br><small>Age 8, 3rd Grade</small></td>
+      <td>Bilingual home; loves soccer (*fútbol*), video games, and bakery visits with his grandfather.</td>
+      <td>Visual, game-like practice (*Panadería* arrays, *Piñata* candy division) with Tito the Hummingbird companion and non-punitive hints.</td>
+    </tr>
+    <tr>
+      <td><strong>Carmen (Caregiver)</strong><br><small>Working Mother</small></td>
+      <td>Primary language is Spanish. Shares one smartphone with Mateo and his sister.</td>
+      <td>Zero-password QR pairing to view Mateo's progress in Spanish, WhatsApp updates, and dinner-table math retos.</td>
+    </tr>
+    <tr>
+      <td><strong>Maestro Morales (Teacher)</strong><br><small>Dual-Immersion Educator</small></td>
+      <td>Teaches 28 elementary students; 80% are Hispanic dual-language learners.</td>
+      <td>Supplementary classroom math stations, zero login friction, and printable bilingual offline worksheets.</td>
+    </tr>
+  </table>
+
+  <!-- PAGE 2 -->
+  <div class="page-break"></div>
+
+  <h2>4. Curriculum & Pedagogical Framework</h2>
+  <p>AvanzaMath implements the <strong>Concrete-Pictorial-Abstract (CPA)</strong> approach combined with <strong>Culturally Responsive Teaching (CRT)</strong>.</p>
+
+  <table>
+    <tr>
+      <th>Level</th>
+      <th>Grade</th>
+      <th>Arithmetic Domain</th>
+      <th>Core Competencies</th>
+      <th>Hispanic Cultural Theme Module</th>
+    </tr>
+    <tr>
+      <td><strong>Nivel 1</strong></td>
+      <td>K – 1st</td>
+      <td>Number Sense & Add/Sub</td>
+      <td>Counting 0–20, Ten-Frames, Number Bonds, Single-digit (+ / −)</td>
+      <td><strong>El Puesto de Frutas:</strong> Counting mangos, avocados, papayas, and oranges on ten-frames.</td>
+    </tr>
+    <tr>
+      <td><strong>Nivel 2</strong></td>
+      <td>2nd – 3rd</td>
+      <td>Multi-digit Add/Sub & Multiplication</td>
+      <td>Regrouping, Arrays, Skip Counting, Times Tables (1–10)</td>
+      <td><strong>La Panadería:</strong> Baking conchas and empanadas in rows $\times$ cols; <strong>El Mercado:</strong> Dollars & coins ($1, $5, $10, $20, 25¢).</td>
+    </tr>
+    <tr>
+      <td><strong>Nivel 3</strong></td>
+      <td>4th – 5th</td>
+      <td>Division & Equal Sharing</td>
+      <td>Long Division, Factors, Multiples, Equivalent Fractions</td>
+      <td><strong>La Piñata:</strong> Fair candy sharing into party favor bags (*bolsitas*); <strong>La Cocina:</strong> Scaling family recipes.</td>
+    </tr>
+    <tr>
+      <td><strong>Todos</strong></td>
+      <td>K – 5th</td>
+      <td>Mental Math Review</td>
+      <td>All 4 Operations (+, −, ×, ÷), Speed, Pattern Recognition</td>
+      <td><strong>Lotería Matemática:</strong> Math Bingo with bean stamps, operation filters (+, −, ×, ÷), and vocal card caller (*El Cantor*).</td>
+    </tr>
+  </table>
+
+  <h2>5. Hispanic Cultural Integration Modules ("El Sistema Nuestra Cultura")</h2>
+  <div class="card-box">
+    <h4>🏪 Everyday Community & Celebration Quests</h4>
+    <ul style="margin-bottom: 0;">
+      <li><strong>La Panadería de Don Carlos:</strong> Multiplication as baking arrays (3 rows of 4 conchas $= 12$).</li>
+      <li><strong>El Mercado y Tiendita:</strong> Budgeting purchases and calculating exact change from $10 or $20 bills.</li>
+      <li><strong>La Piñata de Cumpleaños:</strong> Dividing piñata candy batches equally into party bags (*bolsitas*).</li>
+      <li><strong>Lotería Matemática:</strong> Mental math Bingo review across addition, subtraction, multiplication, and division.</li>
+      <li><strong>Héroes STEM:</strong> Real-world missions inspired by astronaut Dr. Ellen Ochoa and calculus educator Jaime Escalante.</li>
+    </ul>
+  </div>
+
+  <h2>6. Functional Requirements & Feature Specifications</h2>
+  
+  <h4>FR-01: Welcome Landing & Quick Lesson Prep Hub (Página de Bienvenida)</h4>
+  <ul>
+    <li>Dedicated welcome home view featuring *Tito el Colibrí* and direct CTAs to start math quests or play Lotería.</li>
+    <li><strong>Quick Prep Lessons:</strong> Conceptual summaries and tips for Ten-Frames, Arrays, Money Math, and Division.</li>
+    <li><strong>Curated Video Linkages:</strong> Direct links to Khan Academy (English and Spanish) and Math Antics video lessons.</li>
+  </ul>
+
+  <h4>FR-02: Student Onboarding, Identity & Avatar Profile System (Registro sin Fricción)</h4>
+  <ul>
+    <li><strong>Zero-PII Compliance:</strong> No email, password, or student personal identifying information collected.</li>
+    <li><strong>Avatar Selection:</strong> Students pick cultural companions (*Tito el Colibrí 🐦*, *Sol el Axolote 🦎*, *Luna la Mariposa 🦋*).</li>
+    <li><strong>4-Word Magic Recovery Code & QR Pasaporte:</strong> Anonymous code (e.g., <code>Colibri-Pan-Sol-24</code>) and printable QR passport to resume progress across school Chromebooks and home tablets.</li>
+  </ul>
+
+  <h4>FR-03: Interactive Digital Manipulatives</h4>
+  <ul>
+    <li><strong>Ten-Frames with Matching Fruit Emojis:</strong> 🥭 mangos, 🥑 avocados, 🍊 oranges, 🍈 papayas for hands-on counting.</li>
+    <li><strong>Panadería Baking Trays:</strong> Multi-flavor concha arrays (pink, chocolate, vanilla) for multiplication grids.</li>
+    <li><strong>Cash Register & Coin Counter:</strong> Interactive dollar bills ($1, $5, $10, $20) and change calculation.</li>
+  </ul>
+
+  <!-- PAGE 3 -->
+  <div class="page-break"></div>
+
+  <h4>FR-04: Friendly Hispanic Mascot & "Ganas" Gamification</h4>
+  <ul>
+    <li>*Tito el Colibrí* provides cheerful growth-mindset coaching and cultural role model facts on every screen.</li>
+    <li><strong>Non-Punitive Pedagogy:</strong> Incorrect answers trigger gentle scaffolding hints; no loss of lives or lockouts.</li>
+    <li>Practice earns **Puntos Ganas** (⭐) to celebrate effort and consistency.</li>
+  </ul>
+
+  <h4>FR-05: Instant Dual-Language Engine & Audio Synthesis</h4>
+  <ul>
+    <li>Segmented header toggle <code>[ 🇲🇽 ES | 🇺🇸 EN ]</code> with instant bilingual translation and state persistence.</li>
+    <li>Native Web Speech API text-to-speech with Latin American Spanish (<code>es-MX</code>, <code>es-US</code>, <code>es-419</code>) and English (<code>en-US</code>).</li>
+    <li>Symbol normalizer translates operators naturally (Spanish: <code>+</code> <em>más</em>, <code>−</code> <em>menos</em>, <code>×</code> <em>por</em>, <code>÷</code> <em>entre</em>; English: <code>+</code> <em>plus</em>, <code>−</code> <em>minus</em>, <code>×</code> <em>times</em>, <code>÷</code> <em>divided by</em>).</li>
+    <li>Dedicated Auto-Read toggle (<code>🗣️ Auto: OFF</code> by default) and manual <code>🔊 Read Aloud</code> buttons.</li>
+  </ul>
+
+  <h4>FR-06: Offline-First Progressive Web App (PWA)</h4>
+  <ul>
+    <li>100% of arithmetic practice, audio syntheses, and mini-games function without internet via Service Worker.</li>
+    <li><strong>Network-First Caching Strategy:</strong> Delivers fresh live updates while providing offline fallback.</li>
+    <li>Total initial asset payload strictly <strong>&lt; 2.5 MB</strong> for instant loading on budget mobile networks.</li>
+  </ul>
+
+  <h4>FR-07: Family Math Center (El Portal Familiar) & Parent-Child Association</h4>
+  <ul>
+    <li><strong>Shared Home Device View:</strong> Direct access to mastery progress and Ganas Stars on shared family phones/tablets.</li>
+    <li><strong>Zero-Password QR & Magic Link Pairing:</strong> Parents scan the child's QR code or enter their 4-word code (<code>Colibri-Pan-Sol-24</code>) to link their phone to a read-only progress dashboard.</li>
+    <li><strong>WhatsApp Progress Sharing:</strong> Encodes achievements into a pre-filled celebratory WhatsApp message with voiceover link.</li>
+    <li><strong>Retos en Familia:</strong> Weekly dinner-table or grocery store math prompts in Spanish.</li>
+  </ul>
+
+  <h2>7. Non-Functional Requirements (NFR)</h2>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Category</th>
+      <th>Requirement Description</th>
+      <th>Target Metric</th>
+    </tr>
+    <tr>
+      <td><strong>NFR-01</strong></td>
+      <td>Performance</td>
+      <td>First Contentful Paint (FCP) on budget mobile phones and Chromebooks.</td>
+      <td>$\le 1.2\text{ s}$</td>
+    </tr>
+    <tr>
+      <td><strong>NFR-02</strong></td>
+      <td>Bundle Size</td>
+      <td>Total compressed asset payload (HTML, CSS, JS, SVGs, audio synthesis).</td>
+      <td>$\le 2.5\text{ MB}$</td>
+    </tr>
+    <tr>
+      <td><strong>NFR-03</strong></td>
+      <td>Accessibility</td>
+      <td>WCAG 2.1 Level AA compliance, large touch targets ($\ge 48\text{px}$).</td>
+      <td>100% Lighthouse Score</td>
+    </tr>
+    <tr>
+      <td><strong>NFR-04</strong></td>
+      <td>Device Compatibility</td>
+      <td>Seamless execution on budget Android devices, iPad iOS, and ChromeOS.</td>
+      <td>&gt; 99% Compatibility</td>
+    </tr>
+    <tr>
+      <td><strong>NFR-05</strong></td>
+      <td>Privacy & Legal (COPPA/FERPA)</td>
+      <td>Zero student PII collected. No emails, passwords, ad trackers, or behavioral profiling.</td>
+      <td>100% Compliance</td>
+    </tr>
+    <tr>
+      <td><strong>NFR-06</strong></td>
+      <td>Offline Capability</td>
+      <td>All core practice problems and audio TTS must operate with zero active Wi-Fi.</td>
+      <td>100% Offline Functional</td>
+    </tr>
+  </table>
+
+  <!-- PAGE 4 -->
+  <div class="page-break"></div>
+
+  <h2>8. UX/UI Design & Aesthetic Guidelines</h2>
+  <div class="card-box">
+    <strong>🎨 Hispanic Folk-Art Design System:</strong>
+    <ul style="margin-top: 4px; margin-bottom: 0;">
+      <li><strong>Color Palette:</strong> Fiesta Terracotta (<code>#D9531E</code>), Marigold Gold (<code>#F59E0B</code>), Avocado Jade (<code>#10B981</code>), Deep Indigo (<code>#1E293B</code>), and Warm Parchment (<code>#FDFBF7</code>).</li>
+      <li><strong>Typography:</strong> <em>Outfit</em> for friendly, expressive headings; <em>Plus Jakarta Sans</em> / <em>Inter</em> for clear numeral glyphs.</li>
+      <li><strong>Chunky Tactile Touch Targets:</strong> Minimum $48\text{px} \times 48\text{px}$ interactive buttons for small hands on touchscreens.</li>
+    </ul>
+  </div>
+
+  <h2>9. Technology Architecture & Implementation Stack</h2>
+  <table>
+    <tr>
+      <th style="width: 25%;">Layer</th>
+      <th style="width: 35%;">Technology</th>
+      <th style="width: 40%;">Purpose & Architectural Justification</th>
+    </tr>
+    <tr>
+      <td><strong>Frontend Shell</strong></td>
+      <td>Semantic HTML5 & Vanilla Modern CSS</td>
+      <td>Zero build-step overhead; instant load speed and maximum responsiveness across devices.</td>
+    </tr>
+    <tr>
+      <td><strong>Application Logic</strong></td>
+      <td>ES6+ Modular JavaScript</td>
+      <td>Lightweight component architecture without heavy framework dependencies.</td>
+    </tr>
+    <tr>
+      <td><strong>Audio & Voice</strong></td>
+      <td>Web Speech API & Web Audio API Synthesizer</td>
+      <td>100% free, zero-network-latency bilingual TTS and procedurally generated sound FX.</td>
+    </tr>
+    <tr>
+      <td><strong>Offline Cache & State</strong></td>
+      <td>Service Worker & LocalStorage / IndexedDB</td>
+      <td>Network-First PWA caching strategy with offline mastery tracking.</td>
+    </tr>
+  </table>
+
+  <h2>10. Risk Assessment & Mitigation Matrix</h2>
+  <table>
+    <tr>
+      <th>Risk Factor</th>
+      <th>Impact</th>
+      <th>Likelihood</th>
+      <th>Mitigation Strategy</th>
+    </tr>
+    <tr>
+      <td><strong>Low Household Bandwidth</strong></td>
+      <td>High</td>
+      <td>High</td>
+      <td>Network-first Service Worker caching and keeping initial bundle $\le 2.5\text{MB}$.</td>
+    </tr>
+    <tr>
+      <td><strong>Student Login Friction</strong></td>
+      <td>High</td>
+      <td>Medium</td>
+      <td>Zero-PII onboarding with avatar selection and 4-word anonymous magic codes.</td>
+    </tr>
+    <tr>
+      <td><strong>Speech API Accent Variations</strong></td>
+      <td>Medium</td>
+      <td>Medium</td>
+      <td>Prioritize standard Latin American Spanish (<code>es-MX</code>, <code>es-US</code>, <code>es-419</code>) with clear text fallback.</td>
+    </tr>
+    <tr>
+      <td><strong>Math Anxiety</strong></td>
+      <td>High</td>
+      <td>Low</td>
+      <td>Non-punitive micro-rewards, cheerful mascot encouragement, and visual step-by-step hints.</td>
+    </tr>
+    <tr>
+      <td><strong>Parent Adoption Barriers</strong></td>
+      <td>Medium</td>
+      <td>Medium</td>
+      <td>Zero-password QR pairing, frictionless WhatsApp sharing, and practical dinner-table retos.</td>
+    </tr>
+  </table>
+
+  <h2>11. Verification & Acceptance Criteria</h2>
+  <ol>
+    <li><strong>Accessibility:</strong> All buttons, inputs, and questions have explicit <code>aria-label</code> attributes and pass 100% WCAG 2.1 AA audits.</li>
+    <li><strong>Instant Language Switching:</strong> Segmented language switcher toggles between English and Español under $50\text{ms}$ with full persistence across page refreshes.</li>
+    <li><strong>100% Offline Capability:</strong> Disconnecting Wi-Fi during a math quest allows full continuation of problem solving, animations, audio, and local streak tracking.</li>
+    <li><strong>COPPA / FERPA Compliance:</strong> Zero collection of student emails, passwords, or personal identifying data.</li>
+    <li><strong>Cultural Grounding:</strong> Every grade level includes distinct, everyday Hispanic cultural scenarios (<em>La Panadería</em>, <em>El Mercado</em>, <em>La Piñata</em>, <em>Lotería</em>, or <em>Héroes STEM</em>).</li>
+  </ol>
+
+  <div style="margin-top: 20px; padding-top: 10px; border-top: 1px solid #CBD5E1; font-size: 8pt; color: #64748B; text-align: center;">
+    <strong>AvanzaMath Product Requirement Document v1.3.0</strong> • Approved for Development & Classroom Pilots
+  </div>
+
+</body>
+</html>
