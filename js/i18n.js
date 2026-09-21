@@ -38,6 +38,7 @@ const translations = {
     tabModules: "Math Quests",
     tabLoteria: "Math Bingo",
     tabFamily: "Family Portal",
+    tabContact: "Contact Us",
 
     // Welcome Page Hero
     welcomeHeroBadge: "Learn Math with Pride & Culture",
@@ -194,7 +195,35 @@ const translations = {
     linkCopied: "Link Copied! 📋",
     copyLinkDesc: "Verified report link copied to clipboard! Share via SMS, email, or messaging apps.",
     printWorksheet: "Print Offline Practice Sheet 🖨️",
-    studentProgressReport: "AvanzaMath Student Report for {name}: {stars} Ganas Stars earned across {quests} quests! ⭐"
+    studentProgressReport: "AvanzaMath Student Report for {name}: {stars} Ganas Stars earned across {quests} quests! ⭐",
+
+    // Contact Us Page
+    contactTitle: "Contact Us & Support",
+    contactSubtitle: "We'd love to hear from you! Have questions, suggestions, or feedback about AvanzaMath? Send us a message or reach out via email.",
+    contactEmailHeader: "Direct Email Contact",
+    contactEmailDesc: "For partnerships, educational inquiries, feature requests, or support, email us anytime:",
+    copyEmailBtn: "📋 Copy Email",
+    sendEmailBtn: "📧 Send Email",
+    emailCopiedToast: "Email address copied to clipboard! (ayaanbinish@gmail.com) 📋",
+    formCardTitle: "Send Us a Message",
+    formNameLabel: "Your Name",
+    formEmailLabel: "Your Email Address",
+    formSubjectLabel: "Subject / Topic",
+    formSubjectOption1: "General Inquiry",
+    formSubjectOption2: "School / Classroom Partnership",
+    formSubjectOption3: "Feature Suggestion",
+    formSubjectOption4: "Bug Report",
+    formMessageLabel: "Your Message",
+    formMessagePlaceholder: "Tell us how we can help or improve AvanzaMath for your students...",
+    sendMessageBtn: "🚀 Send Message",
+    formSuccessToast: "¡Gracias! Your message has been received. We will get back to you at {email} soon!",
+    faqTitle: "Frequently Asked Questions",
+    faq1Q: "Is AvanzaMath free for families and schools?",
+    faq1A: "Yes! AvanzaMath is 100% free with no ads, paywalls, or accounts required.",
+    faq2Q: "How do parents and teachers track student progress?",
+    faq2A: "Through our Family Portal, parents can connect their child's 4-word Passport Code to view earned Ganas stars, verified skill badges, and share progress reports.",
+    faq3Q: "How can I request new math quests or suggest improvements?",
+    faq3A: "You can contact us directly at ayaanbinish@gmail.com or fill out the message form above!"
   },
 
   es: {
@@ -231,6 +260,7 @@ const translations = {
     tabModules: "Misiones de Mate",
     tabLoteria: "Lotería Bingo",
     tabFamily: "Portal Familiar",
+    tabContact: "Contacto",
 
     // Welcome Page Hero
     welcomeHeroBadge: "Aprende Matemáticas con Orgullo y Cultura",
@@ -387,7 +417,35 @@ const translations = {
     linkCopied: "¡Enlace Copiado! 📋",
     copyLinkDesc: "¡Enlace de reporte verificado copiado al portapapeles! Compártelo por SMS, correo o mensajes.",
     printWorksheet: "Imprimir Hoja de Práctica 🖨️",
-    studentProgressReport: "Reporte de AvanzaMath para {name}: ¡{stars} Estrellas Ganas logradas en {quests} misiones! ⭐"
+    studentProgressReport: "Reporte de AvanzaMath para {name}: ¡{stars} Estrellas Ganas logradas en {quests} misiones! ⭐",
+
+    // Contact Us Page
+    contactTitle: "Contacto y Asistencia",
+    contactSubtitle: "¡Nos encantaría escucharte! ¿Tienes preguntas, sugerencias o comentarios sobre AvanzaMath? Envíanos un mensaje o escríbenos directamente por correo.",
+    contactEmailHeader: "Contacto Directo por Correo Electrónico",
+    contactEmailDesc: "Para alianzas educativas, dudas, sugerencias de funciones o soporte técnico, escríbenos en cualquier momento:",
+    copyEmailBtn: "📋 Copiar Correo",
+    sendEmailBtn: "📧 Enviar Correo",
+    emailCopiedToast: "¡Dirección de correo copiada al portapapeles! (ayaanbinish@gmail.com) 📋",
+    formCardTitle: "Envíanos un Mensaje",
+    formNameLabel: "Tu Nombre",
+    formEmailLabel: "Tu Correo Electrónico",
+    formSubjectLabel: "Asunto / Tema",
+    formSubjectOption1: "Consulta General",
+    formSubjectOption2: "Alianza para Escuelas / Salón de Clases",
+    formSubjectOption3: "Sugerencia de Nueva Misión",
+    formSubjectOption4: "Reportar un Problema",
+    formMessageLabel: "Tu Mensaje",
+    formMessagePlaceholder: "Cuéntanos cómo podemos ayudarte o mejorar AvanzaMath para tus estudiantes...",
+    sendMessageBtn: "🚀 Enviar Mensaje",
+    formSuccessToast: "¡Gracias por contactarnos! Hemos registrado tu mensaje y te responderemos a {email} pronto.",
+    faqTitle: "Preguntas Frecuentes y Soporte",
+    faq1Q: "¿AvanzaMath es gratuito para familias y escuelas?",
+    faq1A: "¡Sí! AvanzaMath es 100% gratuito, sin anuncios, sin pagos y sin necesidad de crear cuentas.",
+    faq2Q: "¿Cómo pueden los padres y maestros ver el progreso?",
+    faq2A: "A través del Portal Familiar, los padres pueden conectar el código de 4 palabras del pasaporte para ver las estrellas Ganas y reportes de habilidades.",
+    faq3Q: "¿Cómo puedo solicitar nuevas misiones o sugerir mejoras?",
+    faq3A: "¡Puedes contactarnos directamente en ayaanbinish@gmail.com o llenar el formulario de contacto arriba!"
   }
 };
 

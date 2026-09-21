@@ -4,7 +4,7 @@
  */
 
 const App = {
-  currentView: 'welcome', // 'welcome', 'quests', 'fruitStand', 'panaderia', 'mercado', 'pinata', 'loteria', 'family'
+  currentView: 'welcome', // 'welcome', 'quests', 'fruitStand', 'panaderia', 'mercado', 'pinata', 'loteria', 'family', 'contact'
 
   init() {
     initLanguage();
@@ -75,6 +75,7 @@ const App = {
     this.currentView = view;
     const welcomeView = document.getElementById('welcome-view');
     const homeHubView = document.getElementById('home-hub-view');
+    const contactView = document.getElementById('contact-view');
     const moduleWorkspace = document.getElementById('module-workspace-view');
     const backBtn = document.getElementById('btn-back-menu');
 
@@ -86,7 +87,8 @@ const App = {
         (view === 'quests' && tabView === 'quests') ||
         (['fruitStand', 'panaderia', 'mercado', 'pinata'].includes(view) && tabView === 'quests') ||
         (view === 'loteria' && tabView === 'loteria') ||
-        (view === 'family' && tabView === 'family')
+        (view === 'family' && tabView === 'family') ||
+        (view === 'contact' && tabView === 'contact')
       ) {
         tab.classList.add('active');
       } else {
@@ -97,6 +99,7 @@ const App = {
     if (view === 'welcome') {
       if (welcomeView) welcomeView.classList.remove('hidden');
       if (homeHubView) homeHubView.classList.add('hidden');
+      if (contactView) contactView.classList.add('hidden');
       if (moduleWorkspace) moduleWorkspace.classList.add('hidden');
       if (backBtn) backBtn.classList.add('hidden');
       WelcomeModule.init();
@@ -104,13 +107,23 @@ const App = {
     } else if (view === 'quests') {
       if (welcomeView) welcomeView.classList.add('hidden');
       if (homeHubView) homeHubView.classList.remove('hidden');
+      if (contactView) contactView.classList.add('hidden');
       if (moduleWorkspace) moduleWorkspace.classList.add('hidden');
       if (backBtn) backBtn.classList.add('hidden');
       this.renderQuestsHub();
       this.updateMascotTip();
+    } else if (view === 'contact') {
+      if (welcomeView) welcomeView.classList.add('hidden');
+      if (homeHubView) homeHubView.classList.add('hidden');
+      if (contactView) contactView.classList.remove('hidden');
+      if (moduleWorkspace) moduleWorkspace.classList.add('hidden');
+      if (backBtn) backBtn.classList.add('hidden');
+      ContactModule.init();
+      this.updateMascotTip();
     } else {
       if (welcomeView) welcomeView.classList.add('hidden');
       if (homeHubView) homeHubView.classList.add('hidden');
+      if (contactView) contactView.classList.add('hidden');
       if (moduleWorkspace) moduleWorkspace.classList.remove('hidden');
 
       // Only show back button for nested quest mini-games
@@ -238,6 +251,8 @@ const App = {
       WelcomeModule.render();
     } else if (this.currentView === 'quests') {
       this.renderQuestsHub();
+    } else if (this.currentView === 'contact') {
+      ContactModule.render();
     } else {
       this.navigateTo(this.currentView);
     }
@@ -274,11 +289,13 @@ const App = {
     const tabModules = document.getElementById('tab-label-modules');
     const tabLoteria = document.getElementById('tab-label-loteria');
     const tabFamily = document.getElementById('tab-label-family');
+    const tabContact = document.getElementById('tab-label-contact');
 
     if (tabWelcome) tabWelcome.textContent = t('tabWelcome');
     if (tabModules) tabModules.textContent = t('tabModules');
     if (tabLoteria) tabLoteria.textContent = t('tabLoteria');
     if (tabFamily) tabFamily.textContent = t('tabFamily');
+    if (tabContact) tabContact.textContent = t('tabContact');
   },
 
   registerServiceWorker() {

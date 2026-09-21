@@ -22,6 +22,7 @@ const ASSETS_TO_CACHE = [
   './js/modules/pinata.js',
   './js/modules/loteria.js',
   './js/modules/familyPortal.js',
+  './js/modules/contact.js',
   './js/app.js'
 ];
 
