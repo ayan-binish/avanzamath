@@ -26,6 +26,25 @@ const ContactModule = {
         </div>
       </div>
 
+      <!-- About Us & Mission Statement Card -->
+      <section class="about-mission-section mt-4 animate-fade-in">
+        <div class="about-mission-card">
+          <div class="about-mission-grid">
+            <div class="about-column">
+              <div class="about-badge">🌟 ${t('aboutUsTitle')}</div>
+              <h3 class="about-title">AvanzaMath</h3>
+              <p class="about-text">${t('aboutUsText')}</p>
+            </div>
+            <div class="mission-column">
+              <div class="mission-badge">🎯 ${t('missionTitle')}</div>
+              <blockquote class="mission-quote">
+                "${t('missionText')}"
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <div class="contact-grid mt-4">
         <!-- Direct Email Card -->
         <div class="contact-card direct-email-card animate-pop">

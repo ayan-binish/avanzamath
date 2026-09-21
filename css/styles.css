@@ -2183,6 +2183,76 @@ body {
   border-color: var(--terracotta);
 }
 
+/* About Us & Mission Statement Styles */
+.about-mission-card {
+  background: linear-gradient(135deg, #FFFFFF 0%, #FEF3C7 50%, #FFEDD5 100%);
+  border: 2px solid var(--marigold);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-md);
+}
+
+.about-mission-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .about-mission-grid {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+
+.about-badge, .mission-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  margin-bottom: 8px;
+}
+
+.about-badge {
+  background: var(--terracotta-light);
+  color: var(--terracotta);
+}
+
+.mission-badge {
+  background: var(--marigold-light);
+  color: #B45309;
+}
+
+.about-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--indigo-dark);
+  margin-bottom: 6px;
+}
+
+.about-text {
+  font-size: 0.92rem;
+  color: var(--indigo-dark);
+  line-height: 1.6;
+}
+
+.mission-quote {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-style: italic;
+  color: #78350F;
+  background: rgba(255, 255, 255, 0.7);
+  border-left: 4px solid var(--marigold);
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
 /* Print Stylesheet for Worksheets */
 @media print {
   body { background: #FFFFFF; font-size: 12pt; }

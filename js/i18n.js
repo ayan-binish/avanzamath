@@ -223,7 +223,14 @@ const translations = {
     faq2Q: "How do parents and teachers track student progress?",
     faq2A: "Through our Family Portal, parents can connect their child's 4-word Passport Code to view earned Ganas stars, verified skill badges, and share progress reports.",
     faq3Q: "How can I request new math quests or suggest improvements?",
-    faq3A: "You can contact us directly at ayaanbinish@gmail.com or fill out the message form above!"
+    faq3A: "You can contact us directly at ayaanbinish@gmail.com or fill out the message form above!",
+
+    // About Us & Mission Statement
+    aboutMissionHeader: "About Us & Mission Statement",
+    aboutUsTitle: "About AvanzaMath",
+    aboutUsText: "AvanzaMath is a bilingual elementary mathematics learning platform designed to bridge cultural representation and STEM achievement. By embedding mathematical principles into culturally resonant Hispanic narratives—from baking conchas to neighborhood markets and fiesta piñatas—we make elementary math intuitive, engaging, and joyful for every learner.",
+    missionTitle: "Our Mission Statement",
+    missionText: "To empower elementary students with a strong mathematical foundation through culturally rich, bilingual learning experiences that foster confidence, academic excellence, and pride in identity."
   },
 
   es: {
@@ -445,7 +452,14 @@ const translations = {
     faq2Q: "¿Cómo pueden los padres y maestros ver el progreso?",
     faq2A: "A través del Portal Familiar, los padres pueden conectar el código de 4 palabras del pasaporte para ver las estrellas Ganas y reportes de habilidades.",
     faq3Q: "¿Cómo puedo solicitar nuevas misiones o sugerir mejoras?",
-    faq3A: "¡Puedes contactarnos directamente en ayaanbinish@gmail.com o llenar el formulario de contacto arriba!"
+    faq3A: "¡Puedes contactarnos directamente en ayaanbinish@gmail.com o llenar el formulario de contacto arriba!",
+
+    // About Us & Mission Statement
+    aboutMissionHeader: "Sobre Nosotros y Nuestra Misión",
+    aboutUsTitle: "Sobre AvanzaMath",
+    aboutUsText: "AvanzaMath es una plataforma bilingüe de aprendizaje de matemáticas primarias diseñada para unir la representación cultural y el éxito en STEM. Al integrar conceptos matemáticos en historias culturales hispanas —desde hornear pan dulce hasta la tiendita y las piñatas de fiesta— hacemos que las matemáticas sean intuitivas, divertidas y llenas de orgullo para cada estudiante.",
+    missionTitle: "Nuestra Misión",
+    missionText: "Empoderar a los estudiantes de primaria con una sólida base matemática a través de experiencias de aprendizaje bilingües y culturalmente enriquecedoras que inspiren confianza, excelencia académica y orgullo en su identidad."
   }
 };
 
